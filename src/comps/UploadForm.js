@@ -30,7 +30,7 @@ const UploadForm = () => {
             <div className="output">
                 {error && <div className="error">{error}</div>}
                 {file && <div>{file.name}</div>}
-                {file && <progressBar file={file} setFile={setFile} />}
+                {file && <progressBar file={file} setfile={setFile} />}
             </div>
         </form>
     );
