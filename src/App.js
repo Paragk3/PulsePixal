@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       return{
         <div className = "App">
-        <Title/>
-        <UploadForm/>
+          <Title/>
+          <UploadForm/>
         </div>
       }
 

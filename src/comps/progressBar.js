@@ -1,7 +1,7 @@
 import React from "react";
 import useStorage from "../hooks/useStorage";
 
-const progressBar = ({ file, setfile}) => {
+const ProgressBar = ({ file, setfile}) => {
 
     const {url , progress}= useStorage(file);
     console.log(progress, url);
@@ -10,4 +10,4 @@ const progressBar = ({ file, setfile}) => {
     )
 }
 
-export default progressBar;
+export default ProgressBar;

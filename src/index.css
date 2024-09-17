@@ -31,6 +31,17 @@ body{
   font-size: 2.6rem;
 }
 
+/* button styles */
+button{
+  padding: 30px 40px;
+  background-color: var(--primary);
+  color: rgb(15, 15, 15);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
 /* upload form styles */
 .upload-form{
   margin: 40px 0;
