@@ -7,7 +7,7 @@ const UploadForm = () => {
   const [previewUrl, setPreviewUrl] = useState(null); // For image preview
 
   const types = ["image/png", "image/jpeg"];
-  const maxSize = 1024 * 1024 * 2; // 2MB maximum file size
+  const maxSize = 1024 * 1024 * 20; // 2MB maximum file size
 
   const changeHandler = (e) => {
     let selected = e.target.files[0];

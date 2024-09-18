@@ -1,21 +1,28 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { projectFirestore } from "../firebase/config";
-import { collection } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 
-const useFirestore = (collection) => {
-    const [docs, setDocs] = useState([]);   
+const useFirestore = (collectionName) => {
+  const [docs, setDocs] = useState([]);
 
-    useEffect(() => {
-        const unsub = projectFirestore.collection(collection).orderBy('createdAt','desc').onSnapshot((snapshot) => {
-            
-            let documents = [];
-            snapshot.forEach((doc) => {
-                documents.push({...doc.data(), id: doc.id})
-            });
-            setDocs(documents);
-        });
-    
-    }, [collection])
+  useEffect(() => {
+    // Create a query against the collection.
+    const q = query(collection(projectFirestore, collectionName), orderBy('createdAt', 'desc'));
 
-    return{docs};
-}
+    // Listen to changes in the collection
+    const unsub = onSnapshot(q, (snapshot) => {
+      let documents = [];
+      snapshot.forEach((doc) => {
+        documents.push({ ...doc.data(), id: doc.id });
+      });
+      setDocs(documents);
+    });
+
+    // Cleanup function
+    return () => unsub(); 
+  }, [collectionName]);
+
+  return { docs };
+};
+
+export default useFirestore;

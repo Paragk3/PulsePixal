@@ -40,11 +40,11 @@ body {
 .app-title h2 {
   margin-top: 60px;
   font-size: 2.6rem;
-  text-align: center;
+  text-align: left;
 }
 
 .app-title p {
-  text-align: center;
+  text-align: left;
 }
 
 /* Button Styles */
@@ -72,7 +72,7 @@ body {
   margin: 40px 0;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: left;
 }
 
 .upload-form input[type="file"] {
@@ -187,6 +187,22 @@ body {
   padding: 5px 10px;
 }
 
+.img-wrap{
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 50% 0;
+  position: relative;
+  opacity: 0.8;
+}
+
+.img-wrap img{
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .image-grid .grid-item button:hover {
   background-color: var(--button-hover-color);
   color: var(--primary-color);
@@ -212,4 +228,5 @@ body {
 }
 
 /* Modal Styles */
+
 /* Add your modal styles here */
