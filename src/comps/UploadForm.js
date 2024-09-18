@@ -36,7 +36,20 @@ const UploadForm = () => {
           onChange={changeHandler}
           style={{ display: "none" }}
         />
-        <span aria-label="Select Image" className="upload-button">
+        <span
+          aria-label="Select Image"
+          className="upload-button"
+          style={{
+            fontSize: "20px",
+            fontWeight: "bold",
+            borderRadius: "50%",
+            padding: "5px",
+            cursor: "pointer",
+            backgroundColor: "black",
+            color: "white",
+            boxShadow: "0 0 5px rgba(0, 0, 0, 0.3)",
+          }}
+        >
           +
         </span>
       </label>

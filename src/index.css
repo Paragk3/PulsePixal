@@ -1,172 +1,215 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
 
-:root{
-  --primary: #efb6b2;
-  --secondary: #4e4e4e;
-  --error: #ff4a4a;
+:root {
+  --primary-color: #efb6b2;
+  --secondary-color: #4e4e4e;
+  --error-color: #ff4a4a;
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --button-hover-color: #f0f0f0;
+  --button-active-color: #e0e0e0;
+  --grid-item-hover-scale: 1.05;
+  --grid-item-hover-transition: transform 0.3s;
 }
 
-/* base styles & title */
-body{
-  font-family: "Noto Serif";
-  color: var(--secondary);
+/* Base Styles */
+body {
+  font-family: 'Noto Serif', serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
 }
-.App{
+
+.App {
   max-width: 960px;
   margin: 0 auto;
+  padding: 20px;
 }
-.title h1{
-  color: var(--primary);
+
+/* Title Styles */
+.app-title h1 {
+  color: var(--primary-color);
   font-size: 1.2rem;
   letter-spacing: 2px;
   font-weight: normal;
   margin-top: 20px;
   text-align: left;
 }
-.title h2, .title p{
-  text-align: center;
-}
-.title h2{
+
+.app-title h2 {
   margin-top: 60px;
   font-size: 2.6rem;
+  text-align: center;
 }
 
-/* button styles */
-button{
-  padding: 30px 40px;
-  background-color: var(--primary);
-  color: rgb(15, 15, 15);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+.app-title p {
+  text-align: center;
 }
 
-
-/* upload form styles */
-.upload-form{
-  margin: 40px 0;
-  display: flex;
-  justify-content: right;
-  align-items: right;
-}
-.upload-form input[type="file"]{
-  display: none;
-}
-.upload-form label{
+/* Button Styles */
+.button {
   padding: 10px 20px;
-  background-color: var(--primary);
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
-.upload-form label:hover{
-  background-color: #f5f5f5;
-  color: var(--primary);
+
+.button:hover {
+  background-color: var(--button-hover-color);
+  color: var(--primary-color);
 }
-.upload-form img{
-  max-width: 100%;
-  margin: 20px 0;
+
+.button:active {
+  background-color: var(--button-active-color);
 }
-.upload-form .upload-status{
+
+/* Upload Form Styles */
+.upload-form {
+  margin: 40px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.upload-form input[type="file"] {
+  display: none;
+}
+
+.upload-form label {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%; /* Make it circular */
+  padding: 15px; /* Adjust padding for circle */
+  transition: background-color 0.3s, transform 0.3s; /* Add transition */
+}
+
+.upload-form label:hover {
+  background-color: var(--button-hover-color);
+  color: var(--primary-color);
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+.upload-form label:active {
+  transform: scale(0.9); /* Scale down on active */
+}
+
+.upload-status {
   margin: 20px 0;
   text-align: center;
 }
-.upload-form .upload-status p{
+
+.upload-status p {
   font-size: 1.2rem;
   font-weight: bold;
 }
-.upload-form .upload-status p.error{
-  color: var(--error);
-}
-.upload-form .upload-status p.success{
-  color: var(--primary);
-}
-.upload-form .upload-status p.uploading{
-  color: #4e4e4e;
-}
-.upload-form .upload-status p.uploading span{
-  color: var(--primary);
-}
-.upload-form .upload-status p.uploaded{
-  color: var(--primary);
-}
-.upload-form .upload-status p.uploaded span{
-  color: #4e4e4e;
+
+.upload-status p.error {
+  color: var(--error-color);
 }
 
+.upload-status p.success {
+  color: var(--primary-color);
+}
 
-/* progress bar styles */
-.progress-bar{
+.upload-status p.uploading {
+  color: var(--secondary-color);
+}
+
+.upload-status p.uploading span {
+  color: var(--primary-color);
+}
+
+.upload-status p.uploaded {
+  color: var(--primary-color);
+}
+
+.upload-status p.uploaded span {
+  color: var(--secondary-color);
+}
+
+/* Progress Bar Styles */
+.progress-bar {
   width: 100%;
   height: 20px;
-  background-color: #f5f5f5;
+  background-color: var(--bg-color);
   border-radius: 10px;
   margin: 20px 0;
 }
-.progress-bar div{
+
+.progress-bar div {
   height: 100%;
   text-align: right;
   padding: 0 10px;
   line-height: 20px;
   color: white;
-  background-color: var(--primary);
+  background-color: var(--primary-color);
   border-radius: 10px;
 }
-.progress-bar div span{
+
+.progress-bar div span {
   font-size: 0.8rem;
 }
 
-
-/* image grid styles */
-.image-grid{
+/* Image Grid Styles */
+.image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   margin: 40px 0;
 }
-.image-grid img{
+
+.image-grid img {
   width: 100%;
   border-radius: 5px;
+  transition: var(--grid-item-hover-transition);
 }
-.image-grid img:hover{
-  transform: scale(1.05);
-  transition: transform 0.3s;
+
+.image-grid img:hover {
+  transform: scale(var(--grid-item-hover-scale));
 }
-.image-grid .image-grid-item{
+
+.image-grid .grid-item {
   position: relative;
 }
-.image-grid .image-grid-item button{
+
+.image-grid .grid-item button {
+  
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: var(--primary);
+  background-color: var(--primary-color);
   color: white;
-  border: none;
-  border-radius: 5px;
   padding: 5px 10px;
-  cursor: pointer;
 }
-.image-grid .image-grid-item button:hover{
-  background-color: #f5f5f5;
-  color: var(--primary);
-} 
 
-.image-grid .image-grid-item button:active{
+.image-grid .grid-item button:hover {
+  background-color: var(--button-hover-color);
+  color: var(--primary-color);
+}
+
+.image-grid .grid-item button:active {
   transform: scale(0.95);
 }
 
-.image-grid .image-grid-item button:focus{
+.image-grid .grid-item button:focus {
   outline: none;
 }
-.image-grid .image-grid-item button:disabled{
-  background-color: #f5f5f5;
-  color: var(--secondary);
+
+.image-grid .grid-item button:disabled {
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
   cursor: not-allowed;
 }
-.image-grid .image-grid-item button:disabled:hover{
-  background-color: #f5f5f5;
-  color: var(--secondary);
+
+.image-grid .grid-item button:disabled:hover {
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
 }
 
-
-/* modal styles */
+/* Modal Styles */
+/* Add your modal styles here */

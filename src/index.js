@@ -1,14 +1,18 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './index.css'; // Import the main stylesheet
+import App from './App'; // Import the main application component
 
+// Get a reference to the HTML element with the id "root"
 const container = document.getElementById('root');
+
+// Create a root element for the React application
 const root = createRoot(container);
 
+// Render the React application to the DOM
 root.render(
-  <React.StrictMode>
-    <App />
+  <React.StrictMode> 
+    <App /> 
   </React.StrictMode>
 );
 
